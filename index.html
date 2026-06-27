@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DSA Visualizer Pro — Learn Data Structures & Algorithms Visually</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <button class="brand" id="brandHome" aria-label="Go to homepage">
+      <span class="brand-mark">&lt;/&gt;</span>
+      <span class="brand-text">DSA Visualizer <em>Pro</em></span>
+    </button>
+
+    <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb"></nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark and light mode" title="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- ===================== HOMEPAGE ===================== -->
+  <section id="view-home" class="view view-home active">
+
+    <section class="hero">
+      <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <p class="eyebrow">Interactive · Visual · Built for Python DSA</p>
+        <h1 class="hero-title">Learn Data Structures &amp; Algorithms<br><span class="grad-text">Through Interactive Visualizations</span></h1>
+        <p class="hero-sub">Run real operations on real structures. Watch every push, pop, rotation, and swap happen step by step — with live complexity analysis alongside.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" id="ctaExplore">Start Exploring <span class="arrow">→</span></button>
+          <button class="btn btn-ghost" id="ctaComplexity">Open Complexity Analyzer</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories">
+      <div class="section-head">
+        <h2>Choose a path</h2>
+        <p>Three categories. One growing intuition for how software actually thinks.</p>
+      </div>
+
+      <div class="category-grid">
+
+        <button class="category-card" data-category="linear">
+          <div class="cat-icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="20" width="8" height="8" rx="2" stroke="currentColor" stroke-width="2"/><rect x="20" y="20" width="8" height="8" rx="2" stroke="currentColor" stroke-width="2"/><rect x="36" y="20" width="8" height="8" rx="2" stroke="currentColor" stroke-width="2"/><path d="M12 24h8M28 24h8" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>Linear Data Structures</h3>
+          <p>Array, Linked List, Stack, Queue, Hash Table — the structures everything else is built from.</p>
+          <span class="cat-count">8 structures</span>
+        </button>
+
+        <button class="category-card" data-category="nonlinear">
+          <div class="cat-icon">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="8" r="4" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="24" r="4" stroke="currentColor" stroke-width="2"/><circle cx="36" cy="24" r="4" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="40" r="4" stroke="currentColor" stroke-width="2"/><path d="M22 11l-7 10M26 11l7 10M14 27l8 10M34 27l-8 10" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>Non-Linear Data Structures</h3>
+          <p>Trees, heaps, tries, and graphs — branching structures for hierarchy and relationships.</p>
+          <span class="cat-count">7 structures</span>
+        </button>
+
+        <button class="category-card" data-category="algorithms">
+          <div class="cat-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M6 38V18M16 38V10M26 38V24M36 38V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 42h40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Algorithms</h3>
+          <p>Sorting and searching algorithms, animated comparison by comparison, swap by swap.</p>
+          <span class="cat-count">8 algorithms</span>
+        </button>
+
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <span class="feature-num">01</span>
+        <h4>Real operations</h4>
+        <p>Every button runs an actual implementation against live state — not a canned animation.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-num">02</span>
+        <h4>Execution console</h4>
+        <p>A running log of every operation, its complexity, and the structure's state, terminal-style.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-num">03</span>
+        <h4>Complexity analyzer</h4>
+        <p>Plug in N and see how O(1) through O(2ⁿ) actually diverge, on one shared graph.</p>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- ===================== CATEGORY VIEW (children list) ===================== -->
+  <section id="view-category" class="view view-category">
+    <div class="view-header">
+      <button class="back-btn" data-back="home">← Back</button>
+      <h2 id="categoryTitle"></h2>
+      <p id="categorySub"></p>
+    </div>
+    <div class="child-grid" id="childGrid"></div>
+  </section>
+
+  <!-- ===================== SUBCHILD VIEW (e.g. Linked List types, Queue types) ===================== -->
+  <section id="view-subchild" class="view view-subchild">
+    <div class="view-header">
+      <button class="back-btn" data-back="category">← Back</button>
+      <h2 id="subchildTitle"></h2>
+      <p id="subchildSub"></p>
+    </div>
+    <div class="child-grid" id="subchildGrid"></div>
+  </section>
+
+  <!-- ===================== VISUALIZER WORKSPACE ===================== -->
+  <section id="view-visualizer" class="view view-visualizer">
+    <div class="workspace">
+
+      <div class="workspace-header">
+        <button class="back-btn" id="workspaceBack">← Back</button>
+        <div class="workspace-title">
+          <h2 id="vizTitle">Structure Name</h2>
+          <p id="vizDesc">Description</p>
+        </div>
+      </div>
+
+      <div class="workspace-grid">
+
+        <!-- Controls panel -->
+        <div class="panel controls-panel" id="controlsPanel">
+          <h3 class="panel-title">Operations</h3>
+          <div class="controls-body" id="controlsBody"></div>
+        </div>
+
+        <!-- Visualization canvas -->
+        <div class="panel viz-panel">
+          <h3 class="panel-title">Visualization</h3>
+          <div class="viz-stage" id="vizStage"></div>
+        </div>
+
+        <!-- Execution console -->
+        <div class="panel console-panel">
+          <h3 class="panel-title">Execution Console</h3>
+
+          <div class="console-block">
+            <span class="console-label">Current Operation</span>
+            <div class="console-current" id="consoleCurrent">— idle —</div>
+          </div>
+
+          <div class="console-stats">
+            <div class="stat-box">
+              <span class="stat-label">Time Complexity</span>
+              <span class="stat-value" id="statTime">—</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-label">Space Complexity</span>
+              <span class="stat-value" id="statSpace">—</span>
+            </div>
+          </div>
+
+          <div class="console-block">
+            <span class="console-label">Current State</span>
+            <div class="console-state" id="consoleState">[ ]</div>
+          </div>
+
+          <div class="console-block console-history-block">
+            <span class="console-label">Operation History</span>
+            <div class="console-log" id="consoleLog">
+              <div class="log-empty">No operations yet. Try one above.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMPLEXITY ANALYZER ===================== -->
+  <section id="view-complexity" class="view view-complexity">
+    <div class="view-header">
+      <button class="back-btn" data-back="home">← Back</button>
+      <h2>Complexity Analyzer</h2>
+      <p>Enter a value for N and compare how each growth rate behaves at that scale.</p>
+    </div>
+
+    <div class="complexity-grid">
+      <div class="panel complexity-input-panel">
+        <h3 class="panel-title">Input</h3>
+        <label class="field-label" for="nInput">N (input size)</label>
+        <input type="range" id="nSlider" min="1" max="40" value="10" />
+        <div class="n-display"><span id="nValue">10</span> elements</div>
+
+        <div class="complexity-legend" id="complexityLegend"></div>
+      </div>
+
+      <div class="panel complexity-graph-panel">
+        <h3 class="panel-title">Growth Comparison</h3>
+        <div class="graph-stage">
+          <canvas id="complexityCanvas"></canvas>
+        </div>
+      </div>
+
+      <div class="panel complexity-table-panel">
+        <h3 class="panel-title">Operation Counts at N = <span id="nValue2">10</span></h3>
+        <div class="complexity-table" id="complexityTable"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Built with HTML, CSS &amp; vanilla JavaScript — no frameworks. A portfolio project for learning DSA visually.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
